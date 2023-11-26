@@ -1,0 +1,33 @@
+@layout('layout.master')
+
+@section('content')
+    <a href="/create" class="btn btn-success float-end">Create +</a>
+
+    <table class="table">
+        <thead>
+            <tr class="fw-bolder">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+           @each(d in data)
+           <tr>
+            <td>{{d.id}}</td>
+            <td>{{d.name}}</td>
+            <td>
+                <img src="{{d.image}}" style="width:90px;" alt="">
+            </td>
+            <td>
+                <a href="/edit/{{d.id}}" class="btn btn-sm btn-warning">edit</a>
+                <a href="/delete/{{d.id}}" class="btn btn-sm btn-danger">delete</a>
+            </td>
+
+            </tr>
+           @endeach
+        </tbody>
+    </table>
+@endsection
